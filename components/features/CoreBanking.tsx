@@ -115,7 +115,7 @@ export function CoreBanking() {
               </div>
 
               {/* Laptop Base — gradient border wrapper */}
-              <div className="bg-gradient-to-r from-primary-blue to-secondary-blue p-px rounded-b-2xl">
+              <div className="bg-gradient-to-r from-primary-blue to-secondary-blue p-px rounded-b-2xl -ml-4 lg:-ml-10 relative z-10 shadow-2xl">
                 <div className="bg-page-bg rounded-b-2xl h-6 lg:h-8 flex items-center justify-center">
                   {/* Optional trackpad notch */}
                   <div className="w-16 lg:w-24 h-1 rounded-full bg-text-main/10" />
