@@ -37,10 +37,10 @@ export function Hero() {
         
         {/* Left Content */}
         <div ref={contentRef} className="flex flex-col gap-8 max-w-xl">
-          <h1 className="text-5xl lg:text-[64px] leading-[1.1] font-semibold text-white tracking-tight">
+          <h1 className="text-5xl lg:text-[64px] leading-[1.1] font-semibold text-text-main tracking-tight">
             The new foundation of modern banking
           </h1>
-          <p className="text-lg lg:text-[20px] text-white/70 leading-relaxed max-w-120">
+          <p className="text-lg lg:text-[20px] text-text-main/70 leading-relaxed max-w-120">
             We drive innovation and growth, provide seamless customer experience and operational excellence
           </p>
           
@@ -48,7 +48,7 @@ export function Hero() {
             <Button variant="primary" className="uppercase rounded-lg!">
               REQUEST DEMO
             </Button>
-            <Button variant="outline" className="uppercase rounded-lg! border-white/50! hover:border-white!">
+            <Button variant="outline" className="uppercase rounded-lg! border-text-main/50! hover:border-text-main!">
               CONTACT US
             </Button>
           </div>
@@ -73,7 +73,7 @@ export function Hero() {
 
       {/* Trusted By Section */}
       <div className="mt-24 z-10 w-full flex flex-col gap-6">
-        <p className="text-white/60 text-sm font-medium">Trusted By:</p>
+        <p className="text-text-main/60 text-sm font-medium">Trusted By:</p>
         <div className="flex flex-wrap items-center gap-x-10 gap-y-6 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
           {LOGOS.map((logo) => (
             <div key={logo.name} className="flex items-center gap-3 transition-transform hover:scale-105 hover:opacity-100">

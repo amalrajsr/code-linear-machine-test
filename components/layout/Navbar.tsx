@@ -25,26 +25,26 @@ export function Navbar() {
     >
       {/* Logo */}
       <div className="flex-shrink-0">
-        <Link href="/" className="text-white text-2xl font-bold tracking-wider">
+        <Link href="/" className="text-text-main text-2xl font-bold tracking-wider">
           N7
         </Link>
       </div>
 
       {/* Navigation Links */}
-      <div className="hidden md:flex items-center gap-10 font-mono font-medium text-[12px] uppercase text-white/80">
-        <Link href="#" className="flex items-center gap-1 hover:text-white transition-colors">
+      <div className="hidden md:flex items-center gap-10 font-mono font-medium text-[12px] uppercase text-text-main/80">
+        <Link href="#" className="flex items-center gap-1 hover:text-text-main transition-colors">
           SOLUTIONS
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </Link>
-        <Link href="#" className="flex items-center gap-1 hover:text-white transition-colors">
+        <Link href="#" className="flex items-center gap-1 hover:text-text-main transition-colors">
           RESOURCES
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </Link>
-        <Link href="#" className="hover:text-white transition-colors">
+        <Link href="#" className="hover:text-text-main transition-colors">
           ABOUT US
         </Link>
       </div>

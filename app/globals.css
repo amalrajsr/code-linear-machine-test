@@ -2,7 +2,7 @@
 
 :root {
   --background: #000D12;
-  --foreground: #ffffff;
+  --foreground: #E9F4F9;
 }
 
 @theme inline {
@@ -13,6 +13,7 @@
   --color-nav-bg: #2F2F2FB2;
   --color-page-bg: #000D12;
   --color-logo-text: #586E84;
+  --color-text-main: #E9F4F9;
   --font-sans: var(--font-archivo);
   --font-mono: var(--font-chivo-mono);
 }
@@ -21,4 +22,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+}
+
+/* Utility for background watermark text stroke — not available in Tailwind */
+.text-stroke-subtle {
+  -webkit-text-stroke: 1px rgba(233, 244, 249, 0.08);
+  -webkit-text-fill-color: transparent;
 }
