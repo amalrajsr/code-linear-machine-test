@@ -26,6 +26,7 @@ body {
 
 /* Utility for background watermark text stroke — not available in Tailwind */
 .text-stroke-subtle {
-  -webkit-text-stroke: 1px rgba(233, 244, 249, 0.08);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.06);
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }

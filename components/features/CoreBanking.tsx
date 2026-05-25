@@ -56,17 +56,18 @@ export function CoreBanking() {
 
   return (
     <section ref={sectionRef} className="relative w-full py-32 overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
 
-        {/* CB7 Background Watermark Text — sits between bg and content */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-[1] whitespace-nowrap"
-          aria-hidden="true"
-        >
-          <span className="text-stroke-subtle bg-transparent text-[280px] lg:text-[400px] font-bold leading-none tracking-tighter">
-            CB7
-          </span>
-        </div>
+      {/* CB7 Background Watermark — giant ghost text behind all content */}
+      <div
+        className=" hidden absolute inset-0 lg:flex items-center justify-center pointer-events-none select-none z-[0] overflow-hidden"
+        aria-hidden="true"
+      >
+        <span className="text-stroke-subtle text-[50vw] lg:text-[45vw] font-bold leading-none tracking-tighter whitespace-nowrap">
+          CB7
+        </span>
+      </div>
+
+      <div className="relative z-[1] max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Main Grid */}
         <div className="relative z-[2] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
