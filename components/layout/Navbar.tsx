@@ -21,7 +21,7 @@ export function Navbar() {
   return (
     <nav 
       ref={navRef}
-      className="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl z-50 bg-nav-bg backdrop-blur-[15px] rounded-xl px-8 py-3 flex items-center justify-between border border-white/5 shadow-2xl"
+      className="fixed top-8 left-1/2 -translate-x-1/2 w-[70%] z-50 bg-nav-bg backdrop-blur-[15px] rounded-xl px-8 py-3 flex items-center justify-between border border-white/5 shadow-2xl"
     >
       {/* Logo */}
       <div className="flex-shrink-0">

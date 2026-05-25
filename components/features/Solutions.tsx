@@ -90,7 +90,7 @@ export function Solutions() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+    <section ref={containerRef} className="relative w-full py-32 px-6 lg:px-12 mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
         
         {/* Left Sticky Column */}
