@@ -34,9 +34,9 @@ export function DigitalPaperlessCTA() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full relative bg-text-main py-20 lg:py-32 overflow-hidden z-10">
+    <section ref={sectionRef} className="w-full relative bg-text-main py-12 sm:py-16 lg:py-32 overflow-hidden z-10">
 
-      <div className="lg:w-10/12 mx-auto relative z-10">
+      <div className="w-full sm:w-11/12 lg:w-10/12 mx-auto relative z-10">
         <div className="w-full lg:rounded-2xl relative overflow-visible">
 
           {/* Left edge gradient glow — thin vertical strip hugging the card's left side */}
@@ -50,7 +50,7 @@ export function DigitalPaperlessCTA() {
           />
 
           <div className="relative lg:rounded-2xl bg-page-bg overflow-hidden">
-            <div className="relative w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-8 lg:px-16 py-20 lg:py-24 gap-10">
+            <div className="relative w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 lg:px-16 py-12 sm:py-16 lg:py-24 gap-6 sm:gap-8 lg:gap-10">
 
               {/* N7 Background Watermark */}
               <div
@@ -65,10 +65,10 @@ export function DigitalPaperlessCTA() {
                 </span>
               </div>
 
-              <div ref={contentRef} className="relative z-[1] flex flex-col md:flex-row w-full justify-between items-center md:items-end gap-10">
+              <div ref={contentRef} className="relative z-[1] flex flex-col md:flex-row w-full justify-between items-center md:items-end gap-6 sm:gap-8 lg:gap-10">
                 {/* Left Content */}
                 <div className="flex flex-col gap-6 max-w-2xl">
-                  <h2 className="text-4xl lg:text-[48px] font-medium leading-[1.15] tracking-tight text-white">
+                  <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-medium leading-[1.15] tracking-tight text-white">
                     Take the full advantage of<br className="hidden lg:block"/> going paper-less now.
                   </h2>
                   <p className="text-sm lg:text-base text-text-main/60 leading-relaxed max-w-xl">
@@ -79,10 +79,10 @@ export function DigitalPaperlessCTA() {
 
                 {/* Right Buttons */}
                 <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 mt-8 md:mt-0">
-                  <Button variant="outline" className="uppercase rounded-xl! min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5 py-4! px-8!">
+                  <Button variant="outline" className="uppercase rounded-xl! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5 py-4! px-8!">
                     CONTACT US
                   </Button>
-                  <Button variant="primary" className="uppercase rounded-lg! min-w-40 text-xs font-medium tracking-widest shadow-lg shadow-primary-blue/20">
+                  <Button variant="primary" className="uppercase rounded-lg! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest shadow-lg shadow-primary-blue/20">
                     REQUEST DEMO
                   </Button>
                 </div>

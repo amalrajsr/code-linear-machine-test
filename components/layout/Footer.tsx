@@ -73,11 +73,11 @@ function FooterLink({ text }: { text: string }) {
 export function Footer() {
   return (
     <footer className="w-full bg-page-bg  border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Top CTA Section */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 mb-32">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8 lg:gap-10 mb-16 sm:mb-24 lg:mb-32">
           <div className="flex flex-col gap-6 max-w-2xl">
-            <h2 className="text-4xl lg:text-5xl font-medium leading-[1.15] tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium leading-[1.15] tracking-tight text-white">
               Take the full advantage of
               <br className="hidden lg:block" /> going paper-less now.
             </h2>
@@ -90,13 +90,13 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
             <Button
               variant="outline"
-              className="uppercase rounded-xl! min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5 py-4! px-8!"
+              className="uppercase rounded-xl! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5 py-4! px-8!"
             >
               CONTACT US
             </Button>
             <Button
               variant="primary"
-              className="uppercase rounded-lg! min-w-40 text-xs font-medium tracking-widest shadow-lg shadow-primary-blue/20 px-8!"
+              className="uppercase rounded-lg! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest shadow-lg shadow-primary-blue/20 px-8!"
             >
               REQUEST DEMO
             </Button>
@@ -104,7 +104,7 @@ export function Footer() {
         </div>
 
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-8 mb-12 sm:mb-16 lg:mb-24">
           {/* Left: N7 Logo */}
           <div className="lg:col-span-4 flex items-start">
             <Image
@@ -117,7 +117,7 @@ export function Footer() {
           </div>
 
           {/* Right: Content Grids */}
-          <div className="lg:col-span-8 flex flex-col gap-16">
+          <div className="lg:col-span-8 flex flex-col gap-10 sm:gap-12 lg:gap-16">
             {/* Addresses Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {ADDRESSES.map((item, idx) => (

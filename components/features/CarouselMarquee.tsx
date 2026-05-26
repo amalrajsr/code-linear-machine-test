@@ -47,7 +47,7 @@ export function CarouselMarquee() {
   }, []);
 
   return (
-    <section className="w-full bg-white py-5 overflow-hidden flex items-center mt-10 ">
+    <section className="w-full bg-white py-4 sm:py-5 overflow-hidden flex items-center mt-6 sm:mt-8 lg:mt-10 ">
       <div 
         ref={trackRef} 
         className="flex items-center w-max"

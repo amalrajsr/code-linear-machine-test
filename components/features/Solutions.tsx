@@ -90,13 +90,13 @@ export function Solutions() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full py-32 px-6 lg:px-12 mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
+    <section ref={containerRef} className="relative w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-12 mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 relative">
         
         {/* Left Sticky Column */}
         <div className="lg:col-span-5 h-full relative">
-          <div ref={leftColRef} className="sticky top-40 flex flex-col gap-10">
-            <h2 className="text-4xl lg:text-[44px] font-semibold leading-[1.2] tracking-tight">
+          <div ref={leftColRef} className="lg:sticky lg:top-40 flex flex-col gap-6 sm:gap-8 lg:gap-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold leading-[1.2] tracking-tight">
               All of our solutions are tailor-made to your needs
             </h2>
             <div>
@@ -108,7 +108,7 @@ export function Solutions() {
         </div>
 
         {/* Right Scrollable Grid */}
-        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16">
+        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 lg:gap-x-12 gap-y-10 sm:gap-y-12 lg:gap-y-16">
           {SOLUTIONS.map((solution, idx) => (
             <div key={idx} className="feature-card flex flex-col gap-5">
               
@@ -134,7 +134,7 @@ export function Solutions() {
                 <h3 className="text-xl font-medium text-text-main">
                   {solution.title}
                 </h3>
-                <p className="text-[14px] leading-relaxed text-text-main/60 h-auto sm:min-h-[140px]">
+                <p className="text-[14px] leading-relaxed text-text-main/60 h-auto lg:min-h-[140px]">
                   {solution.description}
                 </p>
               </div>

@@ -55,7 +55,7 @@ export function CoreBanking() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full py-32 overflow-hidden">
+    <section ref={sectionRef} className="relative w-full py-16 sm:py-24 lg:py-32 overflow-hidden">
 
       {/* CB7 Background Watermark — giant ghost text behind all content */}
       <div
@@ -67,14 +67,14 @@ export function CoreBanking() {
         </span>
       </div>
 
-      <div className="relative z-[1]  mx-auto px-6 lg:px-12">
+      <div className="relative z-[1] mx-auto px-4 sm:px-6 lg:px-12">
 
         {/* Main Grid */}
-        <div className="relative z-[2] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
+        <div className="relative z-[2] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
           {/* Left Content */}
           <div ref={contentRef} className="flex flex-col gap-6 max-w-lg">
-            <h2 className="text-4xl lg:text-[52px] font-semibold leading-[1.15] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-semibold leading-[1.15] tracking-tight">
               A complete cloud-based core banking.
             </h2>
             <p className="text-base lg:text-lg text-text-main/60 leading-relaxed max-w-sm">
@@ -99,7 +99,7 @@ export function CoreBanking() {
           {/* Right Laptop UI */}
           <div ref={laptopRef} className="flex flex-col items-center lg:items-end">
             {/* Laptop Screen — gradient border wrapper */}
-            <div className="w-full max-w-xl lg:max-w-none lg:w-[110%] lg:-mr-[10%]">
+            <div className="w-full lg:max-w-none lg:w-[110%] lg:-mr-[10%]">
               {/* Screen — gradient border with inner gap */}
               <div className="bg-gradient-to-b from-primary-blue to-secondary-blue p-px rounded-t-xl">
                 <div className="bg-page-bg rounded-t-xl overflow-hidden p-3">
@@ -115,7 +115,7 @@ export function CoreBanking() {
               </div>
 
               {/* Laptop Base — gradient border wrapper */}
-              <div className="bg-gradient-to-r from-primary-blue to-secondary-blue p-px rounded-b-2xl -ml-4 lg:-ml-10 relative z-10 shadow-2xl">
+              <div className="bg-gradient-to-r from-primary-blue to-secondary-blue p-px rounded-b-2xl lg:-ml-10 relative z-10 shadow-2xl">
                 <div className="bg-page-bg rounded-b-2xl h-6 lg:h-8 flex items-center justify-center">
                   {/* Optional trackpad notch */}
                   <div className="w-16 lg:w-24 h-1 rounded-full bg-text-main/10" />

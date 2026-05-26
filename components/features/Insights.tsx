@@ -83,17 +83,17 @@ export function Insights() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-page-bg py-24 lg:py-32 px-6 lg:px-12"
+      className="relative w-full bg-page-bg py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-12"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-10">
           {/* ─── Left Column ─── */}
           <div className="lg:col-span-4 h-full relative">
             <div
               ref={leftColRef}
-              className="lg:sticky lg:top-40 flex flex-col gap-10"
+              className="lg:sticky lg:top-40 flex flex-col gap-6 sm:gap-8 lg:gap-10"
             >
-              <h2 className="text-4xl lg:text-[44px] font-semibold leading-[1.15] tracking-tight text-text-main">
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold leading-[1.15] tracking-tight text-text-main">
                 Get yourself up-to-speed on all the things happening in fintech
               </h2>
               <div>
@@ -112,7 +112,7 @@ export function Insights() {
             {/* Featured Card */}
             <div className="insight-card grid grid-cols-1 md:grid-cols-[5fr_6fr] rounded-xl border border-card-border bg-page-bg/60 overflow-hidden">
               {/* Image */}
-              <div className="relative aspect-square bg-[#061428] flex items-center justify-center p-8 lg:p-12">
+              <div className="relative aspect-square bg-[#061428] flex items-center justify-center p-4 sm:p-8 lg:p-12">
                 <div className="relative w-full h-full">
                   <Image
                     src="/assets/fintech.png"
@@ -145,7 +145,7 @@ export function Insights() {
             </div>
 
             {/* Bottom Two Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div className="insight-card">
                 <ArticleCard />
               </div>

@@ -89,16 +89,16 @@ export function SystemFeatures() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-24 lg:py-32 overflow-hidden"
+      className="relative w-full py-16 sm:py-24 lg:py-32 overflow-hidden"
     >
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Left Laptop UI */}
           <div
             ref={laptopRef}
             className="flex flex-col items-center lg:items-start order-2 lg:order-1"
           >
-            <div className="w-full max-w-xl lg:max-w-none lg:w-[120%] lg:-ml-[15%]">
+            <div className="w-full lg:max-w-none lg:w-[120%] lg:-ml-[15%]">
               {/* Screen */}
               <div className="bg-gradient-to-b from-primary-blue to-secondary-blue p-px rounded-t-xl">
                 <div className="bg-page-bg rounded-t-xl overflow-hidden p-2.5 lg:p-3">
@@ -112,7 +112,7 @@ export function SystemFeatures() {
                 </div>
               </div>
               {/* Laptop Base */}
-              <div className="bg-linear-to-r from-primary-blue to-secondary-blue p-px rounded-b-2xl -mr-4 lg:-mr-10 relative z-10 shadow-2xl">
+              <div className="bg-linear-to-r from-primary-blue to-secondary-blue p-px rounded-b-2xl lg:-mr-10 relative z-10 shadow-2xl">
                 <div className="bg-page-bg rounded-b-2xl h-6 lg:h-8 flex items-center justify-center">
                   {/* Optional trackpad notch */}
                   <div className="w-16 lg:w-24 h-1 rounded-full bg-text-main/10" />

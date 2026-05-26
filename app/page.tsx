@@ -13,7 +13,7 @@ import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen max-w-360 mx-auto relative overflow-hidden bg-page-bg text-text-main">
+    <main className="min-h-screen w-full max-w-360 mx-auto relative overflow-hidden bg-page-bg text-text-main">
       <Navbar />
       <Hero />
       <Solutions />

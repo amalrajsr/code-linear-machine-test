@@ -116,12 +116,12 @@ export function CaseStudies() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-page-bg py-24 lg:py-32 overflow-hidden"
+      className="relative w-full bg-page-bg py-16 sm:py-24 lg:py-32 overflow-hidden"
     >
       {/* Title */}
       <h2
         ref={titleRef}
-        className="text-center text-3xl lg:text-[44px] font-semibold leading-tight tracking-tight text-text-main mb-8 lg:mb-12 px-6"
+        className="text-center text-2xl sm:text-3xl lg:text-[44px] font-semibold leading-tight tracking-tight text-text-main mb-6 sm:mb-8 lg:mb-12 px-4 sm:px-6"
       >
         Our Case Studies
       </h2>
@@ -129,11 +129,11 @@ export function CaseStudies() {
       {/* Carousel viewport */}
       <div className="relative w-full">
         {/* Overflow wrapper — allows peeking of adjacent slides */}
-        <div className="mx-auto max-w-4xl px-6 lg:px-0 overflow-visible">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-0 overflow-visible">
           <div className="overflow-visible">
             {/* Sliding track */}
             <div
-              className="relative w-full flex items-center justify-center min-h-[600px] md:min-h-[450px] lg:min-h-[350px]"
+              className="relative w-full flex items-center justify-center min-h-[480px] sm:min-h-[550px] md:min-h-[450px] lg:min-h-[350px]"
             >
               {CASE_STUDIES.map((study, index) => {
                 const offset = index - activeIndex;
@@ -152,9 +152,9 @@ export function CaseStudies() {
                       visibility: isVisible ? 'visible' : 'hidden'
                     }}
                   >
-                  <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] rounded-xl border border-card-border bg-page-bg overflow-hidden shadow-2xl p-4 lg:p-6 gap-6 lg:gap-10">
+                  <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] rounded-xl border border-card-border bg-page-bg overflow-hidden shadow-2xl p-3 sm:p-4 lg:p-6 gap-4 sm:gap-6 lg:gap-10">
                     {/* Image */}
-                    <div className="relative w-full h-full min-h-62.5 lg:min-h-75 rounded-xl overflow-hidden bg-[#061428] flex items-center justify-center">
+                    <div className="relative w-full h-full min-h-48 sm:min-h-62.5 lg:min-h-75 rounded-xl overflow-hidden bg-[#061428] flex items-center justify-center">
                         <Image
                           src={study.image}
                           alt={study.title}
@@ -202,7 +202,7 @@ export function CaseStudies() {
       </div>
 
       {/* Navigation Controls */}
-      <div className="relative z-20 w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center mt-8 lg:mt-10 px-6 lg:px-0 gap-6 md:gap-0">
+      <div className="relative z-20 w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center mt-6 sm:mt-8 lg:mt-10 px-4 sm:px-6 lg:px-0 gap-4 sm:gap-6 md:gap-0">
         {/* Arrows + Dots */}
         <div className="flex items-center gap-4">
           <ArrowButton direction="left" onClick={goPrev} disabled={activeIndex === 0} />

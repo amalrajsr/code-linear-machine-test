@@ -72,12 +72,12 @@ export function DigitalBanking() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#E9F4F9] text-[#000D12] py-24 lg:py-32 overflow-hidden">
+    <section ref={containerRef} className="relative w-full bg-[#E9F4F9] text-[#000D12] py-16 sm:py-24 lg:py-32 overflow-hidden">
       
       {/* Background Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-[0] overflow-hidden">
         <span 
-          className="text-[65vw] lg:text-[55vw] font-bold leading-none tracking-tighter whitespace-nowrap text-transparent"
+          className="text-[80vw] sm:text-[65vw] lg:text-[55vw] font-bold leading-none tracking-tighter whitespace-nowrap text-transparent"
           style={{ WebkitTextStroke: '2px rgba(0, 180, 253, 0.15)' }}
         >
           N7
@@ -85,16 +85,16 @@ export function DigitalBanking() {
       </div>
       
       {/* Background Shells/Lines Graphics */}
-      <div className="absolute top-1/4 left-[-20%] w-[80%] h-[100%] opacity-[0.04] pointer-events-none select-none z-[0]">
+      <div className="absolute top-1/4 left-[-20%] w-[80%] h-full opacity-[0.04] pointer-events-none select-none z-[0] hidden sm:block">
          <Image src="/assets/shells.svg" alt="" fill className="object-cover" />
       </div>
 
-      <div className="relative z-[1] max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+      <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
         
         {/* Left Sticky Column */}
         <div className="lg:col-span-4 h-full relative">
           <div ref={leftColRef} className="lg:sticky lg:top-40 flex flex-col gap-6">
-            <h2 className="text-4xl lg:text-[52px] font-medium leading-[1.1] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-medium leading-[1.1] tracking-tight">
               Digital banking<br className="hidden lg:block"/> out-of-the-box
             </h2>
             <p className="text-sm lg:text-[15px] text-[#000D12]/70 leading-relaxed max-w-sm">
@@ -118,14 +118,14 @@ export function DigitalBanking() {
         </div>
 
         {/* Right Content Area (Staggered 2-column) */}
-        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:gap-y-0">
+        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-12 lg:gap-y-0">
           
           {/* Middle Column */}
-          <div className="flex flex-col gap-16 lg:gap-24 lg:mt-12">
+          <div className="flex flex-col gap-10 sm:gap-16 lg:gap-24 lg:mt-12">
             
             {/* Mobile 1 */}
             <div className="stagger-item flex justify-center drop-shadow-2xl">
-              <Image src="/assets/mobile-1.png" alt="Mobile Banking Dashboard" width={280} height={580} className="w-[260px] lg:w-[280px] h-auto object-contain rounded-[40px]" />
+              <Image src="/assets/mobile-1.png" alt="Mobile Banking Dashboard" width={280} height={580} className="w-full max-w-[260px] lg:max-w-[280px] h-auto object-contain rounded-[40px]" />
             </div>
 
             {/* TextBlock 2 */}
@@ -143,13 +143,13 @@ export function DigitalBanking() {
 
             {/* Mobile 3 */}
             <div className="stagger-item flex justify-center drop-shadow-2xl">
-              <Image src="/assets/mobile-3.png" alt="Mobile Profile Setting" width={280} height={580} className="w-[260px] lg:w-[280px] h-auto object-contain rounded-[40px]" />
+              <Image src="/assets/mobile-3.png" alt="Mobile Profile Setting" width={280} height={580} className="w-full max-w-[260px] lg:max-w-[280px] h-auto object-contain rounded-[40px]" />
             </div>
 
           </div>
 
           {/* Rightmost Column */}
-          <div className="flex flex-col gap-16 lg:gap-24 lg:mt-64">
+          <div className="flex flex-col gap-10 sm:gap-16 lg:gap-24 lg:mt-64">
             
             {/* TextBlock 1 */}
             <div className="stagger-item flex flex-col gap-5 px-2">
@@ -166,7 +166,7 @@ export function DigitalBanking() {
 
             {/* Mobile 2 */}
             <div className="stagger-item flex justify-center drop-shadow-2xl">
-              <Image src="/assets/mobile-2.png" alt="Mobile Bar Chart" width={280} height={580} className="w-[260px] lg:w-[280px] h-auto object-contain rounded-[40px]" />
+              <Image src="/assets/mobile-2.png" alt="Mobile Bar Chart" width={280} height={580} className="w-full max-w-[260px] lg:max-w-[280px] h-auto object-contain rounded-[40px]" />
             </div>
 
             {/* TextBlock 3 */}

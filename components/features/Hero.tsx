@@ -19,47 +19,44 @@ export function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Content animation
       gsap.fromTo(contentRef.current?.children ? Array.from(contentRef.current.children) : [], 
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.2 }
       );
-
-   
     });
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen pt-40 pb-20 flex flex-col justify-center overflow-hidden  mx-auto px-6 lg:px-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center z-10 grow">
+    <section className="relative w-full min-h-screen pt-28 sm:pt-32 lg:pt-40 pb-12 sm:pb-16 lg:pb-20 flex flex-col justify-center overflow-hidden mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center z-10 grow">
         
         {/* Left Content */}
-        <div ref={contentRef} className="flex flex-col gap-8 max-w-xl">
-          <h1 className="text-5xl lg:text-[64px] leading-[1.1] font-semibold text-text-main tracking-tight">
+        <div ref={contentRef} className="flex flex-col gap-5 sm:gap-6 lg:gap-8 max-w-xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.1] font-semibold text-text-main tracking-tight">
             The new foundation of modern banking
           </h1>
-          <p className="text-lg lg:text-[20px] text-text-main/70 leading-relaxed max-w-120">
+          <p className="text-base sm:text-lg lg:text-[20px] text-text-main/70 leading-relaxed max-w-120">
             We drive innovation and growth, provide seamless customer experience and operational excellence
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button variant="primary" className="uppercase rounded-lg!">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
+            <Button variant="primary" className="uppercase rounded-lg! text-sm sm:text-base">
               REQUEST DEMO
             </Button>
-            <Button variant="outline" className="uppercase rounded-lg! border-text-main/50! hover:border-text-main!">
+            <Button variant="outline" className="uppercase rounded-lg! border-text-main/50! hover:border-text-main! text-sm sm:text-base">
               CONTACT US
             </Button>
           </div>
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full aspect-square md:aspect-4/3 lg:aspect-square flex items-center justify-center">
+        <div className="relative w-full aspect-[4/3] sm:aspect-4/3 lg:aspect-square flex items-center justify-center">
           {/* Blue Glow Effect */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary-blue/30 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary-blue/30 blur-[80px] sm:blur-[100px] rounded-full pointer-events-none" />
           
-          <div  className="relative w-[110%] h-[110%] z-10 mr-[-10%]">
+          <div className="relative w-full h-full lg:w-[110%] lg:h-[110%] z-10 lg:mr-[-10%]">
             <Image 
               src="/assets/hero.png" 
               alt="Modern banking dashboard interface" 
@@ -72,12 +69,12 @@ export function Hero() {
       </div>
 
       {/* Trusted By Section */}
-      <div className="mt-24 z-10 w-full flex flex-col gap-6">
-        <p className="text-text-main/60 text-sm font-medium">Trusted By:</p>
-        <div className="flex flex-wrap items-center gap-x-10 gap-y-6 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+      <div className="mt-12 sm:mt-16 lg:mt-24 z-10 w-full flex flex-col gap-4 sm:gap-6">
+        <p className="text-text-main/60 text-xs sm:text-sm font-medium">Trusted By:</p>
+        <div className="flex flex-wrap items-center gap-x-6 sm:gap-x-8 lg:gap-x-10 gap-y-4 sm:gap-y-6 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
           {LOGOS.map((logo) => (
-            <div key={logo.name} className="flex items-center gap-3 transition-transform hover:scale-105 hover:opacity-100">
-              <div className="relative h-8 w-8 flex-shrink-0">
+            <div key={logo.name} className="flex items-center gap-2 sm:gap-3 transition-transform hover:scale-105 hover:opacity-100">
+              <div className="relative h-6 w-6 sm:h-8 sm:w-8 flex-shrink-0">
                 <Image 
                   src={logo.src} 
                   alt={`${logo.name} icon`}
@@ -85,7 +82,7 @@ export function Hero() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-logo-text font-bold text-lg tracking-wide">{logo.name}</span>
+              <span className="text-logo-text font-bold text-sm sm:text-base lg:text-lg tracking-wide">{logo.name}</span>
             </div>
           ))}
         </div>
