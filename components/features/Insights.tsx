@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 function ArticleCard() {
   return (
     <div className="flex flex-col gap-5 rounded-xl border border-card-border bg-page-bg/60 p-6 lg:p-8">
-      <span className="font-mono text-xs font-medium uppercase tracking-widest text-getting-started">
+      <span className="font-mono text-[10px] font-medium uppercase tracking-widest text-primary-blue">
         Getting Started
       </span>
       <h3 className="text-xl font-medium leading-snug text-text-main">
@@ -25,7 +25,7 @@ function ArticleCard() {
       <div className="mt-auto pt-2">
         <Button
           variant="outline"
-          className="w-full uppercase rounded-lg! text-xs font-mono tracking-widest border-text-main/20! text-text-main/70 hover:text-text-main py-3!"
+          className="uppercase rounded-lg! text-xs font-mono tracking-widest border-text-main/20! text-text-main/70 hover:text-text-main py-3!"
         >
           Read More
         </Button>
@@ -110,19 +110,21 @@ export function Insights() {
           {/* ─── Right Column ─── */}
           <div className="lg:col-span-8 flex flex-col gap-8">
             {/* Featured Card */}
-            <div className="insight-card grid grid-cols-1 md:grid-cols-2 rounded-xl border border-card-border bg-page-bg/60 overflow-hidden">
+            <div className="insight-card grid grid-cols-1 md:grid-cols-[5fr_6fr] rounded-xl border border-card-border bg-page-bg/60 overflow-hidden">
               {/* Image */}
-              <div className="relative aspect-square bg-secondary-blue/20">
-                <Image
-                  src="/assets/fintech.png"
-                  alt="Fintech insights"
-                  fill
-                  className="object-cover"
-                />
+              <div className="relative aspect-square bg-[#061428] flex items-center justify-center p-8 lg:p-12">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/assets/fintech.png"
+                    alt="Fintech insights"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
               {/* Content */}
               <div className="flex flex-col gap-5 p-6 lg:p-8 justify-center">
-                <span className="font-mono text-xs font-medium uppercase tracking-widest text-getting-started">
+                <span className="font-mono text-[10px] font-medium uppercase tracking-widest text-primary-blue">
                   Getting Started
                 </span>
                 <h3 className="text-xl lg:text-2xl font-medium leading-snug text-text-main">
