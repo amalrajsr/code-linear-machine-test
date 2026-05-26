@@ -1,26 +1,58 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { gsap } from '@/lib/gsap';
+import { useGSAP } from '@gsap/react';
 
 export function CarouselMarqueeAnimator({ children }: { children: React.ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const track = containerRef.current?.querySelector('.marquee-track');
+  useGSAP(() => {
+    const track = containerRef.current?.querySelector('.marquee-track') as HTMLElement;
     if (!track) return;
     
-    const ctx = gsap.context(() => {
-      gsap.to(track, {
-        xPercent: -50,
+    let animation: gsap.core.Tween;
+    let trackWidth = 0;
+
+    const setupAnimation = () => {
+      // Get the width of half the track (since content is duplicated)
+      trackWidth = track.scrollWidth / 2;
+      
+      if (animation) animation.kill();
+
+      // Calculate a constant speed: e.g. 50 pixels per second
+      const pixelsPerSecond = 50;
+      const duration = trackWidth / pixelsPerSecond;
+
+      gsap.set(track, { x: 0 });
+
+      animation = gsap.to(track, {
+        x: -trackWidth,
         ease: "none",
-        duration: 35,
-        repeat: -1
+        duration: duration,
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize(x => parseFloat(x as string) % trackWidth)
+        }
       });
-    }, containerRef);
+    };
 
-    return () => ctx.revert();
-  }, []);
+    setupAnimation();
 
-  return <div ref={containerRef} className="w-full">{children}</div>;
+    const resizeObserver = new ResizeObserver(() => {
+      // Only rebuild if the track width actually changed
+      const newWidth = track.scrollWidth / 2;
+      if (Math.abs(newWidth - trackWidth) > 5) {
+        setupAnimation();
+      }
+    });
+    resizeObserver.observe(track);
+
+    return () => {
+      resizeObserver.disconnect();
+      if (animation) animation.kill();
+    };
+  }, { scope: containerRef });
+
+  return <div ref={containerRef} className="w-full overflow-hidden">{children}</div>;
 }

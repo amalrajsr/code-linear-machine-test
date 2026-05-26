@@ -11,14 +11,7 @@ export function DigitalPaperlessCTA() {
         <div className="w-full lg:rounded-2xl relative overflow-visible">
 
           {/* Left edge gradient glow — thin vertical strip hugging the card's left side */}
-          <div
-            className="absolute -left-15 -top-10 -bottom-10 w-30 pointer-events-none select-none z-1"
-            style={{
-              background: 'linear-gradient(180deg, #00CFFD 0%, #0015CE 100%)',
-              filter: 'blur(100px)',
-              opacity: 0.6,
-            }}
-          />
+          <div className="absolute -left-15 -top-10 -bottom-10 w-30 pointer-events-none select-none z-1 bg-gradient-to-b from-cta-from to-cta-to blur-[100px] opacity-60" />
 
           <div className="relative lg:rounded-2xl bg-page-bg overflow-hidden">
             <div className="relative w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 lg:px-16 py-12 sm:py-16 lg:py-24 gap-6 sm:gap-8 lg:gap-10">
@@ -50,10 +43,10 @@ export function DigitalPaperlessCTA() {
 
                 {/* Right Buttons */}
                 <div className="flex flex-col  w-full lg:w-fit sm:flex-row items-center gap-4 shrink-0 mt-8 md:mt-0">
-                  <Button variant="outline" className="uppercase rounded-xl! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5 py-4! px-8!">
+                  <Button rounded="xl" variant="outline" className="uppercase w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5">
                     CONTACT US
                   </Button>
-                  <Button variant="primary" className="uppercase rounded-lg! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest shadow-lg shadow-primary-blue/20">
+                  <Button rounded="xl" variant="primary" className="uppercase w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest shadow-lg shadow-primary-blue/20">
                     REQUEST DEMO
                   </Button>
                 </div>

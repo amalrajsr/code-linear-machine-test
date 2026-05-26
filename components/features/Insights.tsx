@@ -1,26 +1,38 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "../ui/Button";
+import { LearnMoreLink } from '../ui/LearnMoreLink';
 import { InsightsAnimator } from "./animators/InsightsAnimator";
 
+interface Article {
+  tag: string;
+  title: string;
+  author: string;
+  date: string;
+}
+
+const ARTICLES: Article[] = [
+  { tag: 'Getting Started', title: 'How to transition from a traditional to a digital bank', author: 'David Grohl', date: '17/08/24' },
+  { tag: 'Getting Started', title: 'The future of open banking and API economy', author: 'Anna Smith', date: '12/09/24' }
+];
+
 /** Reusable article card used for the bottom two smaller cards */
-function ArticleCard() {
+function ArticleCard({ article }: { article: Article }) {
   return (
-    <div className="flex flex-col gap-5 rounded-xl border border-card-border bg-page-bg/60 p-6 lg:p-8">
+    <div className="flex flex-col gap-5 rounded-xl border border-card-border bg-page-bg/60 p-6 lg:p-8 h-full">
       <span className="font-mono text-[10px] font-medium uppercase tracking-widest text-primary-blue">
-        Getting Started
+        {article.tag}
       </span>
       <h3 className="text-xl font-medium leading-snug text-text-main">
-        How to transition from a traditional to a digital bank
+        {article.title}
       </h3>
       <p className="text-xs text-text-main/50">
-        David Grohl&nbsp;&nbsp;&nbsp;17/08/24
+        {article.author}&nbsp;&nbsp;&nbsp;{article.date}
       </p>
       <div className="mt-auto pt-2">
         <Button
           variant="outline"
-          className="uppercase rounded-lg! text-xs font-mono tracking-widest border-text-main/20! text-text-main/70 hover:text-text-main py-3!"
+          className="uppercase text-xs font-mono tracking-widest border-text-main/20 text-text-main/70 hover:text-text-main"
         >
           Read More
         </Button>
@@ -44,7 +56,7 @@ export function Insights() {
               <div>
                 <Button
                   variant="outline"
-                  className="uppercase rounded-lg! border-text-main/50! hover:border-text-main!"
+                  className="uppercase border-text-main/50! hover:border-text-main!"
                 >
                   Insights
                 </Button>
@@ -82,7 +94,7 @@ export function Insights() {
                 <div className="pt-2">
                   <Button
                     variant="outline"
-                    className="w-full uppercase rounded-lg! text-xs font-mono tracking-widest border-text-main/20! text-text-main/70 hover:text-text-main py-3!"
+                    className="w-full uppercase text-xs font-mono tracking-widest border-text-main/20 text-text-main/70 hover:text-text-main"
                   >
                     Read More
                   </Button>
@@ -92,38 +104,16 @@ export function Insights() {
 
             {/* Bottom Two Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              <div className="insight-card">
-                <ArticleCard />
-              </div>
-              <div className="insight-card">
-                <ArticleCard />
-              </div>
+              {ARTICLES.map(article => (
+                <div key={article.title} className="insight-card h-full">
+                  <ArticleCard article={article} />
+                </div>
+              ))}
             </div>
 
             {/* Read All Link */}
             <div className="flex justify-center lg:justify-end pt-4">
-              <Link
-                href="#"
-                className="font-mono text-xs font-medium uppercase tracking-widest text-primary-blue hover:text-text-main transition-colors flex items-center gap-2"
-              >
-                Read All Insights
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mt-px"
-                >
-                  <path
-                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
+              <LearnMoreLink href="#" text="Read All Insights" className="text-xs" />
             </div>
           </div>
         </div>

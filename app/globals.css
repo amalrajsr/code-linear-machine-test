@@ -16,6 +16,10 @@
   --color-text-main: #E9F4F9;
   --color-getting-started: #2490BB;
   --color-card-border: rgba(36, 144, 187, 0.2);
+  --color-image-bg: #061428;
+  --color-cta-from: #00CFFD;
+  --color-cta-to: #0015CE;
+  --color-paperless-from: #031E2A;
   --font-sans: var(--font-archivo);
   --font-mono: var(--font-chivo-mono);
 }

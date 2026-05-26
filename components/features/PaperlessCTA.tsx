@@ -6,7 +6,7 @@ export function PaperlessCTA() {
   return (
     <PaperlessCTAAnimator>
       <section className="w-full sm:w-11/12 lg:w-10/12 mx-auto relative bg-page-bg">
-      <div className="w-full sm:rounded-2xl bg-linear-to-r from-[#031E2A] to-page-bg">
+      <div className="w-full sm:rounded-2xl bg-linear-to-r from-paperless-from to-page-bg">
         <div className="relative sm:rounded-2xl w-full max-w-7xl mx-auto overflow-hidden flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-24 gap-6 sm:gap-8 lg:gap-10">
           
           {/* CB7 Background Watermark */}
@@ -33,10 +33,10 @@ export function PaperlessCTA() {
 
             {/* Right Buttons */}
             <div className="flex flex-col w-full lg:w-fit sm:flex-row items-center gap-4 shrink-0">
-              <Button variant="outline" className="uppercase rounded-lg! w-full sm:w-auto sm:min-w-[160px] text-xs font-mono tracking-widest border-white/20 hover:bg-white/5 py-4! px-8!">
+              <Button variant="outline" className="uppercase w-full sm:w-auto sm:min-w-[160px] text-xs font-mono tracking-widest border-white/20 hover:bg-white/5">
                 CONTACT US
               </Button>
-              <Button variant="primary" className="uppercase rounded-lg! w-full sm:w-auto sm:min-w-[160px] text-xs font-mono tracking-widest shadow-lg shadow-primary-blue/20">
+              <Button variant="primary" className="uppercase w-full sm:w-auto sm:min-w-[160px] text-xs font-mono tracking-widest shadow-lg shadow-primary-blue/20">
                 REQUEST DEMO
               </Button>
             </div>

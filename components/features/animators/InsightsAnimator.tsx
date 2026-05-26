@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from '@/lib/gsap';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap } from '@/lib/gsap';
 
 export function InsightsAnimator({ children }: { children: React.ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(() => {
       const leftCol = containerRef.current?.querySelector('.insight-left-col');
       if (leftCol) {
         gsap.fromTo(
@@ -44,10 +44,7 @@ export function InsightsAnimator({ children }: { children: React.ReactNode }) {
           }
         );
       }
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    }, { scope: containerRef });
 
   return <div ref={containerRef} className="w-full">{children}</div>;
 }

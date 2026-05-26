@@ -5,16 +5,19 @@ import { Button } from "../ui/Button";
 
 const ADDRESSES = [
   {
+    id: 'london-1',
     city: "London",
     address:
       "Linktia Infosystems Ltd – CB7,\n26 Main Road Sundridge,TN14 6EP,\nEngland, United Kingdom.",
   },
   {
+    id: 'dubai',
     city: "Dubai",
     address:
       "Linktia Infosystems Ltd –\nCB7,Jumeirah Business, Center 5\nCluster W, Jumeirah Lakes Towers,\nDubai, United Arab Emirates",
   },
   {
+    id: 'london-2',
     city: "London",
     address:
       "Linktia Infosystems Ltd –\nCB7,Nirmal, Anand Nagar,\nSuncity Road, Pune,\nMaharashtra, 411041, India",
@@ -23,39 +26,45 @@ const ADDRESSES = [
 
 const LINK_GROUPS = [
   {
+    id: 'solutions',
     title: "Solutions",
     links: [
-      "Core Banking CB7",
-      "Digital Banking N7",
-      "Open Banking",
-      "Loan Origination System",
-      "Loan Management System",
-      "Digital Transformation",
+      { label: "Core Banking CB7", href: "#core-banking-cb7" },
+      { label: "Digital Banking N7", href: "#digital-banking-n7" },
+      { label: "Open Banking", href: "#open-banking" },
+      { label: "Loan Origination System", href: "#loan-origination" },
+      { label: "Loan Management System", href: "#loan-management" },
+      { label: "Digital Transformation", href: "#digital-transformation" },
     ],
   },
   {
+    id: 'n7-banking',
     title: "N7 Banking",
     links: [
-      "About Us",
-      "Solutions",
-      "Contact",
-      "Company",
-      "Careers",
-      "Insights",
-      "Core Team",
-      "Brand Center",
+      { label: "About Us", href: "#about" },
+      { label: "Solutions", href: "#solutions" },
+      { label: "Contact", href: "#contact" },
+      { label: "Company", href: "#company" },
+      { label: "Careers", href: "#careers" },
+      { label: "Insights", href: "#insights" },
+      { label: "Core Team", href: "#core-team" },
+      { label: "Brand Center", href: "#brand-center" },
     ],
   },
   {
+    id: 'socials',
     title: "Our Socials",
-    links: ["LinkedIn", "X"],
+    links: [
+      { label: "LinkedIn", href: "https://linkedin.com" },
+      { label: "X", href: "https://x.com" }
+    ],
   },
 ];
 
-function FooterLink({ text }: { text: string }) {
+function FooterLink({ text, href }: { text: string; href: string }) {
   return (
     <Link
-      href="#"
+      href={href}
       className="group flex items-center justify-between py-1.5 text-sm text-text-main/70 hover:text-primary-blue transition-colors"
     >
       <span>{text}</span>
@@ -88,15 +97,15 @@ export function Footer() {
             </p>
           </div>
           <div className="flex flex-col w-full lg:w-fit sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-            <Button
+            <Button rounded="xl"
               variant="outline"
-              className="uppercase rounded-xl! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5 py-4! px-8!"
+              className="uppercase w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5"
             >
               CONTACT US
             </Button>
-            <Button
+            <Button rounded="xl"
               variant="primary"
-              className="uppercase rounded-lg! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest shadow-lg shadow-primary-blue/20 px-8!"
+              className="uppercase w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest shadow-lg shadow-primary-blue/20"
             >
               REQUEST DEMO
             </Button>
@@ -120,8 +129,8 @@ export function Footer() {
           <div className="lg:col-span-8 flex flex-col gap-10 sm:gap-12 lg:gap-16">
             {/* Addresses Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-              {ADDRESSES.map((item, idx) => (
-                <div key={idx} className="flex flex-col gap-4">
+              {ADDRESSES.map((item) => (
+                <div key={item.id} className="flex flex-col gap-4">
                   <h4 className="text-base font-medium text-text-main">
                     {item.city}
                   </h4>
@@ -134,14 +143,14 @@ export function Footer() {
 
             {/* Links Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-              {LINK_GROUPS.map((group, idx) => (
-                <div key={idx} className="flex flex-col gap-6">
+              {LINK_GROUPS.map((group) => (
+                <div key={group.id} className="flex flex-col gap-6">
                   <h4 className="text-base font-medium text-white">
                     {group.title}
                   </h4>
                   <div className="flex flex-col gap-1 pr-4 lg:pr-12">
-                    {group.links.map((link, linkIdx) => (
-                      <FooterLink key={linkIdx} text={link} />
+                    {group.links.map((link) => (
+                      <FooterLink key={link.label} text={link.label} href={link.href} />
                     ))}
                   </div>
                 </div>

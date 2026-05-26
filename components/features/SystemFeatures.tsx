@@ -17,25 +17,26 @@ const RIGHT_FEATURES = [
   "Establishing criteria for minimum balances, interest rates, number of withdrawals allowed and so on.",
 ];
 
+const CheckIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="flex-shrink-0 mt-0.5"
+  >
+    <path
+      d="M7 12L10.5 15.5L17 8"
+      stroke="white"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 export function SystemFeatures() {
-  const CheckIcon = () => (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="flex-shrink-0 mt-0.5"
-    >
-      <path
-        d="M7 12L10.5 15.5L17 8"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 
   return (
     <SystemFeaturesAnimator>
@@ -44,7 +45,7 @@ export function SystemFeatures() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             {/* Left Laptop UI */}
             <div className="sys-laptop flex flex-col items-center lg:items-start order-2 lg:order-1">
-              <div className="w-full lg:max-w-none lg:w-[120%] lg:-ml-[15%]">
+              <div className="w-full lg:max-w-none lg:w-[110%] lg:-ml-[10%]">
               {/* Screen */}
               <div className="bg-gradient-to-b from-primary-blue to-secondary-blue p-px rounded-t-xl">
                 <div className="bg-page-bg rounded-t-xl overflow-hidden p-2.5 lg:p-3">
@@ -68,7 +69,7 @@ export function SystemFeatures() {
           </div>
 
           {/* Right Content */}
-          <div className="sys-content flex flex-col gap-8 max-w-xl order-1 lg:order-2">
+          <div className="sys-content flex flex-col gap-8 max-w-xl order-1 lg:order-2 lg:ml-auto">
             <h2 className="text-3xl lg:text-[40px] font-medium leading-[1.2] tracking-tight">
               Run a more efficient, flexible,and digitally connected corebanking
               system
@@ -82,8 +83,8 @@ export function SystemFeatures() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
                 {/* Left Column */}
                 <div className="flex flex-col gap-4">
-                  {LEFT_FEATURES.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3">
+                  {LEFT_FEATURES.map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
                       <div className="p-1 bg-linear-to-b from-primary-blue to-secondary-blue  rounded-full">
                         <CheckIcon />
                       </div>
@@ -96,8 +97,8 @@ export function SystemFeatures() {
 
                 {/* Right Column */}
                 <div className="flex flex-col gap-4">
-                  {RIGHT_FEATURES.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3">
+                  {RIGHT_FEATURES.map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
                       <div className="p-1 bg-linear-to-b from-primary-blue to-secondary-blue  rounded-full">
                         <CheckIcon />
                       </div>

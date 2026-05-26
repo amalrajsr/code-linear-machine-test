@@ -3,12 +3,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '../ui/Button';
-import gsap from 'gsap';
+import { gsap } from '@/lib/gsap';
 
 export function Navbar() {
-  const navRef = useRef<HTMLElement>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (navRef.current) {
@@ -49,26 +47,26 @@ export function Navbar() {
 
       {/* Desktop Navigation Links */}
       <div className="hidden md:flex items-center gap-10 font-mono font-medium text-[12px] uppercase text-text-main/80">
-        <Link href="#" className="flex items-center gap-1 hover:text-text-main transition-colors">
+        <Link href="#solutions" className="flex items-center gap-1 hover:text-text-main transition-colors">
           SOLUTIONS
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </Link>
-        <Link href="#" className="flex items-center gap-1 hover:text-text-main transition-colors">
+        <Link href="#resources" className="flex items-center gap-1 hover:text-text-main transition-colors">
           RESOURCES
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </Link>
-        <Link href="#" className="hover:text-text-main transition-colors">
+        <Link href="#about" className="hover:text-text-main transition-colors">
           ABOUT US
         </Link>
       </div>
 
       {/* Desktop CTA Button */}
       <div className="hidden md:block flex-shrink-0">
-        <Button variant="outline" className="px-6 py-2.5 rounded-xl! text-xs">
+        <Button rounded="xl" variant="outline" className="px-6 py-2.5 text-xs">
           REQUEST DEMO
         </Button>
       </div>
@@ -93,22 +91,22 @@ export function Navbar() {
       >
         <div className="min-h-0">
           <div className="flex flex-col gap-6 pt-6 pb-4 border-t border-white/10 mt-3">
-          <Link href="#" className="flex items-center justify-between font-mono font-medium text-sm uppercase text-text-main/80 hover:text-text-main transition-colors" onClick={toggleMenu}>
+          <Link href="#solutions" className="flex items-center justify-between font-mono font-medium text-sm uppercase text-text-main/80 hover:text-text-main transition-colors" onClick={toggleMenu}>
             SOLUTIONS
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </Link>
-          <Link href="#" className="flex items-center justify-between font-mono font-medium text-sm uppercase text-text-main/80 hover:text-text-main transition-colors" onClick={toggleMenu}>
+          <Link href="#resources" className="flex items-center justify-between font-mono font-medium text-sm uppercase text-text-main/80 hover:text-text-main transition-colors" onClick={toggleMenu}>
             RESOURCES
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </Link>
-          <Link href="#" className="font-mono font-medium text-sm uppercase text-text-main/80 hover:text-text-main transition-colors" onClick={toggleMenu}>
+          <Link href="#about" className="font-mono font-medium text-sm uppercase text-text-main/80 hover:text-text-main transition-colors" onClick={toggleMenu}>
             ABOUT US
           </Link>
-          <Button variant="outline" className="w-full px-6 py-2.5 rounded-xl! text-xs mt-2">
+          <Button rounded="xl" variant="outline" className="w-full px-6 py-2.5 text-xs mt-2">
             REQUEST DEMO
           </Button>
           </div>

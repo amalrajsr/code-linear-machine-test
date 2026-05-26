@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from '@/lib/gsap';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap } from '@/lib/gsap';
 
 export function DigitalPaperlessCTAAnimator({ children }: { children: React.ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(() => {
       const content = containerRef.current?.querySelector('.digital-paperless-content');
       if (content) {
         gsap.fromTo(content,
@@ -24,10 +24,7 @@ export function DigitalPaperlessCTAAnimator({ children }: { children: React.Reac
           }
         );
       }
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    }, { scope: containerRef });
 
   return <div ref={containerRef} className="w-full">{children}</div>;
 }
