@@ -29,9 +29,9 @@ export function DigitalPaperlessCTA() {
                 </span>
               </div>
 
-              <div className="digital-paperless-content relative z-[1] flex flex-col md:flex-row w-full justify-between items-center md:items-end gap-6 sm:gap-8 lg:gap-10">
+              <div className="digital-paperless-content relative z-[1] flex flex-col lg:flex-row w-full justify-between items-center lg:items-end gap-8 lg:gap-10">
                 {/* Left Content */}
-                <div className="flex flex-col gap-6 max-w-2xl">
+                <div className="flex flex-col gap-4 sm:gap-6 max-w-2xl text-center lg:text-left items-center lg:items-start">
                   <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-medium leading-[1.15] tracking-tight text-white">
                     Take the full advantage of<br className="hidden lg:block"/> going paper-less now.
                   </h2>
@@ -42,7 +42,7 @@ export function DigitalPaperlessCTA() {
                 </div>
 
                 {/* Right Buttons */}
-                <div className="flex flex-col  w-full lg:w-fit sm:flex-row items-center gap-4 shrink-0 mt-8 md:mt-0">
+                <div className="flex flex-col w-full lg:w-fit sm:flex-row justify-center items-center gap-4 shrink-0 mt-6 lg:mt-0">
                   <Button rounded="xl" variant="outline" className="uppercase w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5">
                     CONTACT US
                   </Button>
