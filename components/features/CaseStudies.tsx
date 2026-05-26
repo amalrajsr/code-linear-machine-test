@@ -40,7 +40,6 @@ const CASE_STUDIES = [
   },
 ];
 
-/** Navigation arrow button */
 function ArrowButton({
   direction,
   onClick,
@@ -54,34 +53,15 @@ function ArrowButton({
     <button
       onClick={onClick}
       disabled={disabled}
-      className="w-10 h-10 rounded-full border border-text-main/20 flex items-center justify-center text-text-main/60 hover:text-text-main hover:border-text-main/50 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+      className="transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:opacity-80"
       aria-label={direction === "left" ? "Previous slide" : "Next slide"}
     >
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {direction === "left" ? (
-          <path
-            d="M19 12H5M5 12L12 5M5 12L12 19"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        ) : (
-          <path
-            d="M5 12H19M19 12L12 5M19 12L12 19"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        )}
-      </svg>
+      <Image
+        src={direction === "left" ? "/assets/prev.svg" : "/assets/next.svg"}
+        alt={direction === "left" ? "Previous" : "Next"}
+        width={42}
+        height={42}
+      />
     </button>
   );
 }
@@ -89,20 +69,14 @@ function ArrowButton({
 export function CaseStudies() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const totalSlides = CASE_STUDIES.length;
 
   const goTo = useCallback(
     (index: number) => {
-      if (index < 0 || index >= totalSlides || !trackRef.current) return;
+      if (index < 0 || index >= totalSlides) return;
       setActiveIndex(index);
-      gsap.to(trackRef.current, {
-        xPercent: -index * (100 / totalSlides),
-        duration: 0.7,
-        ease: "power3.out",
-      });
     },
     [totalSlides]
   );
@@ -147,7 +121,7 @@ export function CaseStudies() {
       {/* Title */}
       <h2
         ref={titleRef}
-        className="text-center text-3xl lg:text-[44px] font-semibold leading-tight tracking-tight text-text-main mb-16 lg:mb-20 px-6"
+        className="text-center text-3xl lg:text-[44px] font-semibold leading-tight tracking-tight text-text-main mb-8 lg:mb-12 px-6"
       >
         Our Case Studies
       </h2>
@@ -155,34 +129,43 @@ export function CaseStudies() {
       {/* Carousel viewport */}
       <div className="relative w-full">
         {/* Overflow wrapper — allows peeking of adjacent slides */}
-        <div className="mx-auto max-w-5xl px-6 lg:px-0 overflow-visible">
-          <div className="overflow-hidden">
+        <div className="mx-auto max-w-4xl px-6 lg:px-0 overflow-visible">
+          <div className="overflow-visible">
             {/* Sliding track */}
             <div
-              ref={trackRef}
-              className="flex"
-              style={{ width: `${totalSlides * 100}%` }}
+              className="relative w-full flex items-center justify-center min-h-[600px] md:min-h-[450px] lg:min-h-[350px]"
             >
-              {CASE_STUDIES.map((study, index) => (
-                <div
-                  key={index}
-                  className="px-3 lg:px-4"
-                  style={{ width: `${100 / totalSlides}%` }}
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-2 rounded-xl border border-card-border bg-page-bg overflow-hidden">
+              {CASE_STUDIES.map((study, index) => {
+                const offset = index - activeIndex;
+                const absOffset = Math.abs(offset);
+                const isVisible = absOffset <= 1;
+
+                return (
+                  <div
+                    key={index}
+                    className="absolute w-full px-4 transition-all duration-700 ease-out"
+                    style={{ 
+                      transform: `translateX(${offset * 12}%) scale(${1 - absOffset * 0.1})`,
+                      opacity: absOffset === 0 ? 1 : (absOffset === 1 ? 0.3 : 0),
+                      zIndex: 10 - absOffset,
+                      pointerEvents: absOffset === 0 ? 'auto' : 'none',
+                      visibility: isVisible ? 'visible' : 'hidden'
+                    }}
+                  >
+                  <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] rounded-xl border border-card-border bg-page-bg overflow-hidden shadow-2xl p-4 lg:p-6 gap-6 lg:gap-10">
                     {/* Image */}
-                    <div className="relative aspect-square bg-secondary-blue/15">
-                      <Image
-                        src={study.image}
-                        alt={study.title}
-                        fill
-                        className="object-cover"
-                      />
+                    <div className="relative w-full h-full min-h-62.5 lg:min-h-75 rounded-xl overflow-hidden bg-[#061428] flex items-center justify-center">
+                        <Image
+                          src={study.image}
+                          alt={study.title}
+                          fill
+                          className="object-contain p-6"
+                        />
                     </div>
 
                     {/* Content */}
-                    <div className="flex flex-col gap-5 p-6 lg:p-10 justify-center">
-                      <span className="font-mono text-xs font-medium uppercase tracking-widest text-getting-started">
+                    <div className="flex flex-col gap-4 lg:gap-5 justify-center py-4 lg:py-6 pr-4 lg:pr-8">
+                      <span className="font-mono text-[10px] font-medium uppercase tracking-widest text-primary-blue">
                         {study.tag}
                       </span>
                       <h3 className="text-xl lg:text-2xl font-medium leading-snug text-text-main">
@@ -211,14 +194,15 @@ export function CaseStudies() {
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
 
       {/* Navigation Controls */}
-      <div className="max-w-5xl mx-auto flex items-center justify-between mt-10 lg:mt-14 px-6 lg:px-0">
+      <div className="relative z-20 w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center mt-8 lg:mt-10 px-6 lg:px-0 gap-6 md:gap-0">
         {/* Arrows + Dots */}
         <div className="flex items-center gap-4">
           <ArrowButton direction="left" onClick={goPrev} disabled={activeIndex === 0} />
@@ -230,10 +214,10 @@ export function CaseStudies() {
                 key={index}
                 onClick={() => goTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
+                className={`transition-all duration-500 rounded-full border border-primary-blue ${
                   index === activeIndex
-                    ? "w-8 bg-text-main"
-                    : "w-1.5 bg-text-main/30 hover:bg-text-main/50"
+                    ? "w-8 h-2 bg-primary-blue"
+                    : "w-2 h-2 bg-transparent hover:bg-primary-blue/30"
                 }`}
               />
             ))}
@@ -243,10 +227,11 @@ export function CaseStudies() {
         </div>
 
         {/* View All Link */}
-        <Link
-          href="#"
-          className="font-mono text-xs font-medium uppercase tracking-widest text-primary-blue hover:text-text-main transition-colors flex items-center gap-2"
-        >
+        <div className="md:absolute md:right-6 lg:right-0">
+          <Link
+            href="#"
+            className="font-mono text-xs font-medium uppercase tracking-widest text-primary-blue hover:text-text-main transition-colors flex items-center gap-2"
+          >
           View All
           <svg
             width="12"
@@ -264,7 +249,8 @@ export function CaseStudies() {
               strokeLinejoin="round"
             />
           </svg>
-        </Link>
+          </Link>
+        </div>
       </div>
     </section>
   );

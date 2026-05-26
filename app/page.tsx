@@ -8,6 +8,7 @@ import { PaperlessCTA } from "@/components/features/PaperlessCTA";
 import { CarouselMarquee } from "@/components/features/CarouselMarquee";
 import { DigitalPaperlessCTA } from "@/components/features/DigitalPaperlessCTA";
 import { Insights } from "@/components/features/Insights";
+import { CaseStudies } from "@/components/features/CaseStudies";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <DigitalBanking />
       <DigitalPaperlessCTA />
       <Insights />
+      <CaseStudies/>
     </main>
   );
 }
