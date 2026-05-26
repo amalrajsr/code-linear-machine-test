@@ -14,6 +14,8 @@
   --color-page-bg: #000D12;
   --color-logo-text: #586E84;
   --color-text-main: #E9F4F9;
+  --color-getting-started: #2490BB;
+  --color-card-border: rgba(36, 144, 187, 0.2);
   --font-sans: var(--font-archivo);
   --font-mono: var(--font-chivo-mono);
 }
