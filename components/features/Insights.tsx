@@ -64,7 +64,7 @@ export function Insights() {
                     alt="Fintech insights"
                     fill
                     className="object-contain"
-                    sizes="auto"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               </div>

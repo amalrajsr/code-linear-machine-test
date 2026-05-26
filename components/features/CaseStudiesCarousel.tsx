@@ -58,6 +58,7 @@ function ArrowButton({
         alt={direction === "left" ? "Previous" : "Next"}
         width={42}
         height={42}
+        className="w-auto h-auto"
       />
     </button>
   );
@@ -146,6 +147,7 @@ export function CaseStudiesCarousel() {
                           src={study.image}
                           alt={study.title}
                           fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
                           className="object-contain p-6"
                         />
                     </div>
@@ -164,7 +166,7 @@ export function CaseStudiesCarousel() {
                           alt={study.company}
                           width={18}
                           height={18}
-                          className="opacity-70"
+                          className="opacity-70 w-auto h-auto"
                         />
                         <span className="text-sm text-text-main/60">
                           {study.company}

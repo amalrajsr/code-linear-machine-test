@@ -64,7 +64,7 @@ function FooterLink({ text }: { text: string }) {
         alt="arrow right"
         width={14}
         height={14}
-        className="opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+        className="opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all w-auto h-auto"
       />
     </Link>
   );

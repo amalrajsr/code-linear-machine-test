@@ -76,7 +76,7 @@ export function DigitalBanking() {
             
             {/* Mobile 1 */}
             <div className="stagger-item flex justify-center drop-shadow-2xl">
-              <Image src="/assets/mobile-1.png" alt="Mobile Banking Dashboard" width={280} height={580} className="w-full max-w-[260px] lg:max-w-[280px] h-auto object-contain rounded-[40px]" />
+              <Image src="/assets/mobile-1.png" alt="Mobile Banking Dashboard" width={280} height={580} className="w-full max-w-[260px] lg:max-w-[280px] h-auto object-contain rounded-[40px]" style={{ width: '100%', height: 'auto' }} />
             </div>
 
             {/* TextBlock 2 */}
@@ -94,7 +94,7 @@ export function DigitalBanking() {
 
             {/* Mobile 3 */}
             <div className="stagger-item flex justify-center drop-shadow-2xl">
-              <Image src="/assets/mobile-3.png" alt="Mobile Profile Setting" width={280} height={580} className="w-full max-w-[260px] lg:max-w-[280px] h-auto object-contain rounded-[40px]" />
+              <Image src="/assets/mobile-3.png" alt="Mobile Profile Setting" width={280} height={580} className="w-full max-w-[260px] lg:max-w-[280px] h-auto object-contain rounded-[40px]" style={{ width: '100%', height: 'auto' }} />
             </div>
 
           </div>
@@ -117,7 +117,7 @@ export function DigitalBanking() {
 
             {/* Mobile 2 */}
             <div className="stagger-item flex justify-center drop-shadow-2xl">
-              <Image src="/assets/mobile-2.png" alt="Mobile Bar Chart" width={280} height={580} className="w-full max-w-[260px] lg:max-w-[280px] h-auto object-contain rounded-[40px]" />
+              <Image src="/assets/mobile-2.png" alt="Mobile Bar Chart" width={280} height={580} className="w-full max-w-[260px] lg:max-w-[280px] h-auto object-contain rounded-[40px]" style={{ width: '100%', height: 'auto' }} />
             </div>
 
             {/* TextBlock 3 */}

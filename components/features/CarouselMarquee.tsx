@@ -16,7 +16,7 @@ const MarqueeItem = ({ text }: { text: string }) => (
           alt="wave" 
           width={72} 
           height={72} 
-          className="object-contain scale-110 lg:scale-125" 
+          className="object-contain scale-110 lg:scale-125 w-auto h-auto" 
           unoptimized 
         />
       </div>
