@@ -112,7 +112,7 @@ export function Insights() {
             {/* Featured Card */}
             <div className="insight-card grid grid-cols-1 md:grid-cols-[5fr_6fr] rounded-xl border border-card-border bg-page-bg/60 overflow-hidden">
               {/* Image */}
-              <div className="relative aspect-square bg-[#061428] flex items-center justify-center p-4 sm:p-8 lg:p-12">
+              <div className="relative aspect-[3/2] md:aspect-square bg-[#061428] flex items-center justify-center p-6 sm:p-8 lg:p-12">
                 <div className="relative w-full h-full">
                   <Image
                     src="/assets/fintech.png"

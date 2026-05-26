@@ -34,7 +34,7 @@ export function DigitalPaperlessCTA() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full relative bg-text-main py-12 sm:py-16 lg:py-32 overflow-hidden z-10">
+    <section ref={sectionRef} className="w-full relative bg-text-main  lg:py-32 overflow-hidden z-10">
 
       <div className="w-full sm:w-11/12 lg:w-10/12 mx-auto relative z-10">
         <div className="w-full lg:rounded-2xl relative overflow-visible">
@@ -78,7 +78,7 @@ export function DigitalPaperlessCTA() {
                 </div>
 
                 {/* Right Buttons */}
-                <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 mt-8 md:mt-0">
+                <div className="flex flex-col  w-full lg:w-fit sm:flex-row items-center gap-4 shrink-0 mt-8 md:mt-0">
                   <Button variant="outline" className="uppercase rounded-xl! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5 py-4! px-8!">
                     CONTACT US
                   </Button>

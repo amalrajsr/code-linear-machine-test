@@ -19,26 +19,13 @@ export function Navbar() {
     }
   }, []);
 
-  /** Animate mobile menu open/close */
+  /** Handle body scroll lock */
   useEffect(() => {
-    if (!menuRef.current) return;
-
     if (isMobileMenuOpen) {
-      // Lock body scroll
       document.body.style.overflow = 'hidden';
-
-      gsap.fromTo(menuRef.current,
-        { height: 0, opacity: 0 },
-        { height: 'auto', opacity: 1, duration: 0.35, ease: 'power3.out' }
-      );
     } else {
       document.body.style.overflow = '';
-
-      gsap.to(menuRef.current, {
-        height: 0, opacity: 0, duration: 0.25, ease: 'power3.in'
-      });
     }
-
     return () => {
       document.body.style.overflow = '';
     };
@@ -100,11 +87,12 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div
-        ref={menuRef}
-        className="md:hidden w-full overflow-hidden"
-        style={{ height: 0, opacity: 0 }}
+        className={`md:hidden w-full overflow-hidden transition-all duration-300 ease-in-out grid ${
+          isMobileMenuOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
       >
-        <div className="flex flex-col gap-6 pt-6 pb-4 border-t border-white/10 mt-3">
+        <div className="min-h-0">
+          <div className="flex flex-col gap-6 pt-6 pb-4 border-t border-white/10 mt-3">
           <Link href="#" className="flex items-center justify-between font-mono font-medium text-sm uppercase text-text-main/80 hover:text-text-main transition-colors" onClick={toggleMenu}>
             SOLUTIONS
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,6 +111,7 @@ export function Navbar() {
           <Button variant="outline" className="w-full px-6 py-2.5 rounded-xl! text-xs mt-2">
             REQUEST DEMO
           </Button>
+          </div>
         </div>
       </div>
     </nav>

@@ -87,7 +87,7 @@ export function Footer() {
               operations
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
+          <div className="flex flex-col w-full lg:w-fit sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
             <Button
               variant="outline"
               className="uppercase rounded-xl! w-full sm:w-auto sm:min-w-40 text-xs font-medium tracking-widest border-white/30 text-white hover:bg-white/5 py-4! px-8!"
@@ -112,7 +112,7 @@ export function Footer() {
               alt="N7"
               width={350}
               height={200}
-              className="w-full max-w-[300px] lg:max-w-none h-auto object-contain"
+              className="w-full max-w-[150px] sm:max-w-[250px] lg:max-w-none h-auto object-contain"
             />
           </div>
 
