@@ -1,40 +1,11 @@
-"use client";
-
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Button } from '../ui/Button';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { PaperlessCTAAnimator } from './animators/PaperlessCTAAnimator';
 
 export function PaperlessCTA() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (contentRef.current) {
-        gsap.fromTo(contentRef.current,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 75%",
-            }
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="w-full sm:w-11/12 lg:w-10/12 mx-auto relative bg-page-bg">
+    <PaperlessCTAAnimator>
+      <section className="w-full sm:w-11/12 lg:w-10/12 mx-auto relative bg-page-bg">
       <div className="w-full sm:rounded-2xl bg-linear-to-r from-[#031E2A] to-[#000D12]">
         <div className="relative sm:rounded-2xl w-full max-w-7xl mx-auto overflow-hidden flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-24 gap-6 sm:gap-8 lg:gap-10">
           
@@ -48,7 +19,7 @@ export function PaperlessCTA() {
             </span>
           </div>
 
-          <div ref={contentRef} className="relative z-[1] flex flex-col md:flex-row w-full justify-between items-center md:items-end gap-6 sm:gap-8 lg:gap-10">
+          <div className="paperless-content relative z-[1] flex flex-col md:flex-row w-full justify-between items-center md:items-end gap-6 sm:gap-8 lg:gap-10">
             {/* Left Content */}
             <div className="flex flex-col gap-6 max-w-xl">
               <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-medium leading-[1.15] tracking-tight text-white">
@@ -73,5 +44,6 @@ export function PaperlessCTA() {
         </div>
       </div>
     </section>
+    </PaperlessCTAAnimator>
   );
 }

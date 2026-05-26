@@ -1,9 +1,7 @@
-"use client";
-
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/Button';
-import gsap from 'gsap';
+import { HeroAnimator } from './animators/HeroAnimator';
 
 const LOGOS = [
   { name: 'SHELLS', src: '/assets/shells.svg' },
@@ -15,25 +13,13 @@ const LOGOS = [
 ];
 
 export function Hero() {
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(contentRef.current?.children ? Array.from(contentRef.current.children) : [], 
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.2 }
-      );
-    });
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section className="relative w-full min-h-screen pt-28 sm:pt-32 lg:pt-40 pb-12 sm:pb-16 lg:pb-20 flex flex-col justify-center overflow-hidden mx-auto px-4 sm:px-6 lg:px-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center z-10 grow">
-        
-        {/* Left Content */}
-        <div ref={contentRef} className="flex flex-col gap-5 sm:gap-6 lg:gap-8 max-w-xl">
+    <HeroAnimator>
+      <section className="relative w-full min-h-screen pt-28 sm:pt-32 lg:pt-40 pb-12 sm:pb-16 lg:pb-20 flex flex-col justify-center overflow-hidden mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center z-10 grow">
+          
+          {/* Left Content */}
+          <div className="hero-content flex flex-col gap-5 sm:gap-6 lg:gap-8 max-w-xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.1] font-semibold text-text-main tracking-tight">
             The new foundation of modern banking
           </h1>
@@ -88,5 +74,6 @@ export function Hero() {
         </div>
       </div>
     </section>
+    </HeroAnimator>
   );
 }

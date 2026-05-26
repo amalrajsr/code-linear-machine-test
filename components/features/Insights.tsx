@@ -1,13 +1,8 @@
-"use client";
-
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/Button";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { InsightsAnimator } from "./animators/InsightsAnimator";
 
 /** Reusable article card used for the bottom two smaller cards */
 function ArticleCard() {
@@ -35,64 +30,14 @@ function ArticleCard() {
 }
 
 export function Insights() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const leftColRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (leftColRef.current) {
-        gsap.fromTo(
-          leftColRef.current,
-          { opacity: 0, x: -30 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 65%",
-            },
-          }
-        );
-      }
-
-      const cards = gsap.utils.toArray(".insight-card");
-      if (cards.length > 0) {
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            stagger: 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 55%",
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full bg-page-bg py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-12"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-10">
-          {/* ─── Left Column ─── */}
-          <div className="lg:col-span-4 h-full relative">
-            <div
-              ref={leftColRef}
-              className="lg:sticky lg:top-40 flex flex-col gap-6 sm:gap-8 lg:gap-10"
-            >
+    <InsightsAnimator>
+      <section className="relative w-full bg-page-bg py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-10">
+            {/* ─── Left Column ─── */}
+            <div className="lg:col-span-4 h-full relative">
+              <div className="insight-left-col lg:sticky lg:top-40 flex flex-col gap-6 sm:gap-8 lg:gap-10">
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold leading-[1.15] tracking-tight text-text-main">
                 Get yourself up-to-speed on all the things happening in fintech
               </h2>
@@ -110,15 +55,16 @@ export function Insights() {
           {/* ─── Right Column ─── */}
           <div className="lg:col-span-8 flex flex-col gap-8">
             {/* Featured Card */}
-            <div className="insight-card grid grid-cols-1 md:grid-cols-[5fr_6fr] rounded-xl border border-card-border bg-page-bg/60 overflow-hidden">
+            <div className="insight-card grid grid-cols-1 md:grid-cols-2 rounded-xl border border-card-border bg-page-bg/60 overflow-hidden">
               {/* Image */}
-              <div className="relative aspect-[3/2] md:aspect-square bg-[#061428] flex items-center justify-center p-6 sm:p-8 lg:p-12">
-                <div className="relative w-full h-full">
+              <div className="relative aspect-3/2   flex items-center justify-center p-6">
+                <div className="relative w-full h-full bg-[#061428]">
                   <Image
                     src="/assets/fintech.png"
                     alt="Fintech insights"
                     fill
                     className="object-contain"
+                    sizes="auto"
                   />
                 </div>
               </div>
@@ -155,7 +101,7 @@ export function Insights() {
             </div>
 
             {/* Read All Link */}
-            <div className="flex justify-end pt-4">
+            <div className="flex justify-center lg:justify-end pt-4">
               <Link
                 href="#"
                 className="font-mono text-xs font-medium uppercase tracking-widest text-primary-blue hover:text-text-main transition-colors flex items-center gap-2"
@@ -183,5 +129,6 @@ export function Insights() {
         </div>
       </div>
     </section>
+    </InsightsAnimator>
   );
 }

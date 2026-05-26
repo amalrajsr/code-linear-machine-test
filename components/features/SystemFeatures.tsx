@@ -1,11 +1,6 @@
-"use client";
-
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { SystemFeaturesAnimator } from "./animators/SystemFeaturesAnimator";
 
 const LEFT_FEATURES = [
   "Customer-On Boarding",
@@ -23,50 +18,6 @@ const RIGHT_FEATURES = [
 ];
 
 export function SystemFeatures() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const laptopRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (contentRef.current) {
-        gsap.fromTo(
-          contentRef.current,
-          { opacity: 0, x: 40 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 65%",
-            },
-          },
-        );
-      }
-
-      if (laptopRef.current) {
-        gsap.fromTo(
-          laptopRef.current,
-          { opacity: 0, x: -60 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1.2,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 60%",
-            },
-          },
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   const CheckIcon = () => (
     <svg
       width="24"
@@ -87,18 +38,13 @@ export function SystemFeatures() {
   );
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full py-16 sm:py-24 lg:py-32 overflow-hidden"
-    >
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-          {/* Left Laptop UI */}
-          <div
-            ref={laptopRef}
-            className="flex flex-col items-center lg:items-start order-2 lg:order-1"
-          >
-            <div className="w-full lg:max-w-none lg:w-[120%] lg:-ml-[15%]">
+    <SystemFeaturesAnimator>
+      <section className="relative w-full py-16 sm:py-24 lg:py-32 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            {/* Left Laptop UI */}
+            <div className="sys-laptop flex flex-col items-center lg:items-start order-2 lg:order-1">
+              <div className="w-full lg:max-w-none lg:w-[120%] lg:-ml-[15%]">
               {/* Screen */}
               <div className="bg-gradient-to-b from-primary-blue to-secondary-blue p-px rounded-t-xl">
                 <div className="bg-page-bg rounded-t-xl overflow-hidden p-2.5 lg:p-3">
@@ -122,10 +68,7 @@ export function SystemFeatures() {
           </div>
 
           {/* Right Content */}
-          <div
-            ref={contentRef}
-            className="flex flex-col gap-8 max-w-xl order-1 lg:order-2"
-          >
+          <div className="sys-content flex flex-col gap-8 max-w-xl order-1 lg:order-2">
             <h2 className="text-3xl lg:text-[40px] font-medium leading-[1.2] tracking-tight">
               Run a more efficient, flexible,and digitally connected corebanking
               system
@@ -170,5 +113,6 @@ export function SystemFeatures() {
         </div>
       </div>
     </section>
+    </SystemFeaturesAnimator>
   );
 }

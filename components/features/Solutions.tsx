@@ -1,14 +1,8 @@
-"use client";
-
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/Button';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-// Register ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+import { SolutionsAnimator } from './animators/SolutionsAnimator';
 
 const SOLUTIONS = [
   {
@@ -44,58 +38,14 @@ const SOLUTIONS = [
 ];
 
 export function Solutions() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const leftColRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Fade in left column when it enters viewport
-      if (leftColRef.current) {
-        gsap.fromTo(leftColRef.current,
-          { opacity: 0, x: -30 },
-          { 
-            opacity: 1, 
-            x: 0, 
-            duration: 1, 
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 70%",
-            }
-          }
-        );
-      }
-
-      // Stagger fade up feature cards
-      const cards = gsap.utils.toArray('.feature-card');
-      if (cards.length > 0) {
-        gsap.fromTo(cards,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 60%",
-            }
-          }
-        );
-      }
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={containerRef} className="relative w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-12 mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 relative">
-        
-        {/* Left Sticky Column */}
-        <div className="lg:col-span-5 h-full relative">
-          <div ref={leftColRef} className="lg:sticky lg:top-40 flex flex-col gap-6 sm:gap-8 lg:gap-10">
+    <SolutionsAnimator>
+      <section className="relative w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-12 mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 relative">
+          
+          {/* Left Sticky Column */}
+          <div className="lg:col-span-5 h-full relative">
+            <div className="solutions-left-col lg:sticky lg:top-40 flex flex-col gap-6 sm:gap-8 lg:gap-10">
             <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold leading-[1.2] tracking-tight">
               All of our solutions are tailor-made to your needs
             </h2>
@@ -157,5 +107,6 @@ export function Solutions() {
 
       </div>
     </section>
+    </SolutionsAnimator>
   );
 }

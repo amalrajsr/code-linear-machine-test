@@ -1,40 +1,11 @@
-"use client";
-
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Button } from '../ui/Button';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { DigitalPaperlessCTAAnimator } from './animators/DigitalPaperlessCTAAnimator';
 
 export function DigitalPaperlessCTA() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (contentRef.current) {
-        gsap.fromTo(contentRef.current,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 75%",
-            }
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="w-full relative bg-text-main  lg:py-32 overflow-hidden z-10">
+    <DigitalPaperlessCTAAnimator>
+      <section className="w-full relative bg-text-main  lg:py-32 overflow-hidden z-10">
 
       <div className="w-full sm:w-11/12 lg:w-10/12 mx-auto relative z-10">
         <div className="w-full lg:rounded-2xl relative overflow-visible">
@@ -65,7 +36,7 @@ export function DigitalPaperlessCTA() {
                 </span>
               </div>
 
-              <div ref={contentRef} className="relative z-[1] flex flex-col md:flex-row w-full justify-between items-center md:items-end gap-6 sm:gap-8 lg:gap-10">
+              <div className="digital-paperless-content relative z-[1] flex flex-col md:flex-row w-full justify-between items-center md:items-end gap-6 sm:gap-8 lg:gap-10">
                 {/* Left Content */}
                 <div className="flex flex-col gap-6 max-w-2xl">
                   <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-medium leading-[1.15] tracking-tight text-white">
@@ -92,5 +63,6 @@ export function DigitalPaperlessCTA() {
         </div>
       </div>
     </section>
+    </DigitalPaperlessCTAAnimator>
   );
 }

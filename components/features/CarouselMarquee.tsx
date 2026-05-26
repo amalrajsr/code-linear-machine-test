@@ -1,8 +1,6 @@
-"use client";
-
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import gsap from 'gsap';
+import { CarouselMarqueeAnimator } from './animators/CarouselMarqueeAnimator';
 
 const MarqueeItem = ({ text }: { text: string }) => (
   <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 shrink-0 px-2 sm:px-3 lg:px-4">
@@ -29,29 +27,10 @@ const MarqueeItem = ({ text }: { text: string }) => (
 );
 
 export function CarouselMarquee() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!trackRef.current) return;
-    
-    const ctx = gsap.context(() => {
-      gsap.to(trackRef.current, {
-        xPercent: -50,
-        ease: "none",
-        duration: 35,
-        repeat: -1
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section className="w-full bg-white py-4 sm:py-5 overflow-hidden flex items-center mt-6 sm:mt-8 lg:mt-10 ">
-      <div 
-        ref={trackRef} 
-        className="flex items-center w-max"
-      >
+    <CarouselMarqueeAnimator>
+      <section className="w-full bg-white py-4 sm:py-5 overflow-hidden flex items-center mt-6 sm:mt-8 lg:mt-10 ">
+      <div className="marquee-track flex items-center w-max">
         {/* First Half */}
         <div className="flex items-center shrink-0">
           <MarqueeItem text="N7" />
@@ -68,5 +47,6 @@ export function CarouselMarquee() {
         </div>
       </div>
     </section>
+    </CarouselMarqueeAnimator>
   );
 }

@@ -1,13 +1,8 @@
-"use client";
-
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/Button';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { DigitalBankingAnimator } from './animators/DigitalBankingAnimator';
 
 const CheckIcon = () => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5 shrink-0">
@@ -19,60 +14,16 @@ const CheckIcon = () => (
 const CheckItem = ({ text }: { text: string }) => (
   <div className="flex items-start gap-3">
     <CheckIcon />
-    <span className="text-[13px] text-[#000D12]/80 leading-snug font-medium">
+    <span className="text-[13px] text-page-bg/80 leading-snug font-medium">
       {text}
     </span>
   </div>
 );
 
 export function DigitalBanking() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const leftColRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Fade in left column
-      if (leftColRef.current) {
-        gsap.fromTo(leftColRef.current,
-          { opacity: 0, x: -30 },
-          { 
-            opacity: 1, 
-            x: 0, 
-            duration: 1, 
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 60%",
-            }
-          }
-        );
-      }
-
-      // Stagger fade up items in the right grid
-      const items = gsap.utils.toArray('.stagger-item');
-      if (items.length > 0) {
-        gsap.fromTo(items,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 50%",
-            }
-          }
-        );
-      }
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={containerRef} className="relative w-full bg-[#E9F4F9] text-[#000D12] py-16 sm:py-24 lg:py-32 overflow-hidden">
+    <DigitalBankingAnimator>
+      <section className="relative w-full bg-text-main text-page-bg py-16 sm:py-24 lg:py-32 overflow-hidden">
       
       {/* Background Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-[0] overflow-hidden">
@@ -93,20 +44,20 @@ export function DigitalBanking() {
         
         {/* Left Sticky Column */}
         <div className="lg:col-span-4 h-full relative">
-          <div ref={leftColRef} className="lg:sticky lg:top-40 flex flex-col gap-6">
+          <div className="digital-left-col lg:sticky lg:top-40 flex flex-col gap-6">
             <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-medium leading-[1.1] tracking-tight">
               Digital banking<br className="hidden lg:block"/> out-of-the-box
             </h2>
-            <p className="text-sm lg:text-[15px] text-[#000D12]/70 leading-relaxed max-w-sm">
+            <p className="text-sm lg:text-[15px] text-page-bg/70 leading-relaxed max-w-sm">
               N7 helps your financial institution improve the client experience, automate and optimize procedures
             </p>
             <div className="flex flex-col gap-5 pt-4">
-              <Button variant="primary" className="uppercase !rounded-[8px] w-fit shadow-lg shadow-primary-blue/20">
+              <Button variant="primary" className="uppercase rounded-lg! w-fit shadow-lg shadow-primary-blue/20">
                 REQUEST DEMO
               </Button>
               <Link 
                 href="#" 
-                className="font-mono text-[11px] font-medium tracking-widest uppercase text-primary-blue hover:text-[#000D12] transition-colors flex items-center gap-2"
+                className="font-mono text-[11px] font-medium tracking-widest uppercase text-primary-blue hover:text-page-bg transition-colors flex items-center gap-2"
               >
                 LEARN MORE
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-px">
@@ -188,5 +139,6 @@ export function DigitalBanking() {
 
       </div>
     </section>
+    </DigitalBankingAnimator>
   );
 }
