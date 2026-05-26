@@ -6,7 +6,13 @@ import { DigitalBankingAnimator } from './animators/DigitalBankingAnimator';
 
 const CheckIcon = () => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5 shrink-0">
-    <circle cx="10" cy="10" r="10" fill="#00B4FD"/>
+    <defs>
+      <linearGradient id="checkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#00B4FD" />
+        <stop offset="100%" stopColor="#003ACE" />
+      </linearGradient>
+    </defs>
+    <circle cx="10" cy="10" r="10" fill="url(#checkGradient)"/>
     <path d="M6 10L9 13L14 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
@@ -48,10 +54,10 @@ export function DigitalBanking() {
             <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-medium leading-[1.1] tracking-tight">
               Digital banking<br className="hidden lg:block"/> out-of-the-box
             </h2>
-            <p className="text-sm lg:text-[15px] text-page-bg/70 leading-relaxed max-w-sm">
+            <p className="text-sm  text-center lg:text-start lg:text-[15px] text-page-bg/70 leading-relaxed max-w-sm">
               N7 helps your financial institution improve the client experience, automate and optimize procedures
             </p>
-            <div className="flex flex-col gap-5 pt-4">
+            <div className="flex flex-col w-full items-center lg:items-start gap-5 pt-4">
               <Button variant="primary" className="uppercase rounded-lg! w-fit shadow-lg shadow-primary-blue/20">
                 REQUEST DEMO
               </Button>
