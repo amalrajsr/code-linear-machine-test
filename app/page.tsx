@@ -9,10 +9,11 @@ import { CarouselMarquee } from "@/components/features/CarouselMarquee";
 import { DigitalPaperlessCTA } from "@/components/features/DigitalPaperlessCTA";
 import { Insights } from "@/components/features/Insights";
 import { CaseStudies } from "@/components/features/CaseStudies";
+import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen  relative overflow-hidden bg-page-bg text-text-main">
+    <main className="min-h-screen max-w-360 mx-auto relative overflow-hidden bg-page-bg text-text-main">
       <Navbar />
       <Hero />
       <Solutions />
@@ -24,6 +25,7 @@ export default function Home() {
       <DigitalPaperlessCTA />
       <Insights />
       <CaseStudies/>
+      <Footer />
     </main>
   );
 }
